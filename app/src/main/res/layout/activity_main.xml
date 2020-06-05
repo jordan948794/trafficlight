@@ -7,43 +7,49 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl1"
+        android:id="@+id/top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="82dp" />
+        app:layout_constraintGuide_percent="0.2"  />
 
-    <TextView
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="紅綠燈(作者：靜宜大學資管二B陳易承)"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <TextView
+        android:id="@+id/txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="紅綠燈(作者：資管二B陳易承)"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/gl1" />
+        app:layout_constraintTop_toTopOf="@+id/top" />
 
     <Button
         android:id="@+id/btnStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
         android:onClick="StartGame"
         android:text="開始遊戲"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ground"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnEnd"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_chainStyle="packed"/>
 
     <Button
         android:id="@+id/btnEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
         android:onClick="EndApp"
         android:text="結束系統"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnStart" />
 
@@ -60,9 +66,9 @@
         android:layout_height="wrap_content"
         android:ems="7"
         android:hint="請輸入綠燈秒數"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/btnB"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
@@ -70,12 +76,12 @@
         android:id="@+id/btnB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:ems="7"
         android:hint="請輸入黃燈秒數"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnC"
+        app:layout_constraintStart_toEndOf="@+id/btnA"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <EditText
@@ -84,11 +90,8 @@
         android:layout_height="wrap_content"
         android:ems="7"
         android:hint="請輸入紅燈秒數"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnB"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
